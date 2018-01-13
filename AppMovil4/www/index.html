@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+    <!--
+        Personalice la directiva de seguridad de contenido en la etiqueta meta como sea necesario. Agregue "unsafe-inline" a default-src para permitir JavaScript insertado.
+        Para obtener más detalles, consulte http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; media-src *">
+        
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />     
+        <title>AppMovil4</title>
+    </head>
+    <body>
+        <!----PAGINA1-->
+        <div data-role="page" id="pagina1">
+            <div data-role="header" data-position="fixed">
+                <h4>Registro de datos</h4>
+            </div>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#" data-icon="search">Consulta</a></li>
+                    <li><a href="#pagina2" data-icon="search">Registro</a></li>
+                </ul>
+            </div>
+
+            <div data-role="content">
+                <div class="titlepage">Buscar Usuario</div>
+                <div style="width:100%; display:inline">
+                    <div style="float: left; width:60%;padding-right:3px;">
+                        <input type="text" id="txtNombre" data-clear-btn="true"/>
+                    </div>
+                    <div style="float: left; width:35%;">
+                        <button id="btnBuscar">Buscar</button>
+                    </div>
+               </div>
+                <div id="divResultado"></div>
+
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <h3>Hecho en Casa Hn</h3>
+            </div>
+           
+
+        </div>
+
+        <!----PAGINA2-->
+        <div data-role="page" id="pagina2">
+            <div data-role="header" data-position="fixed">
+                <h4>Registro de datos</h4>
+            </div>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#pagina1" data-icon="search">Consulta</a></li>
+                    <li><a href="#" data-icon="search">Registro</a></li>
+                </ul>
+            </div>
+
+            <div data-role="content">
+                <div class="titlepage">Registrar Usuario</div>
+              <div class="ui-field-contain">
+                  <label for="txtUsername">Usuario:</label>
+                  <input id="txtUsername" type="text" placeholder="Tu usuario" value="" required />
+                  <label for="txtPassword">Password:</label>
+                  <input id="txtPassword" type="password" placeholder="Tu password" value="" required />
+                  <label for="txtFullname">Nombre:</label>
+                  <input id="txtFullname" type="text" placeholder="Tu nombre completo" value="" required />
+                  <label for="txtCelular">Celular:</label>
+                  <input id="txtCelular" type="text" placeholder="Tu celular" value="" />
+                  <label for="txtEmail">Email:</label>
+                  <input id="txtEmail" type="email" placeholder="Tu email" value="" required />
+                  <label for="txtFechaNac">Fecha Nac.:</label>
+                  <input id="txtFechaNac" type="date" placeholder="Tu fecha nac."/>
+                  <button id="btnGuardar" data-inline="true">Guardar</button>
+              </div>
+                <div id="divRegistro"></div>
+
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <h3>Hecho en Casa Hn</h3>
+            </div>
+
+
+        </div>
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+        <script type="text/javascript" src="scripts/index.js"></script>
+        <script src="scripts/jquery-2.2.3.min.js"></script>
+        <script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+    </body>
+</html>
