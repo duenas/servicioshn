@@ -16,79 +16,48 @@
         <title>AppMovil4</title>
     </head>
     <body>
-        <!----PAGINA1-->
-        <div data-role="page" id="pagina1">
-            <div data-role="header" data-position="fixed">
-                <h4>Registro de datos</h4>
-            </div>
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#" data-icon="search">Consulta</a></li>
-                    <li><a href="#pagina2" data-icon="search">Registro</a></li>
+    
+        <div data-role="page" class="jqm-demos ui-responsive-panel" id="panel-responsive-page1" data-title="Panel responsive page" data-url="panel-responsive-page1">
+            <div data-role="header">
+                <h1>Panel responsive</h1>
+                <a href="#nav-panel" data-icon="bars" data-iconpos="notext">Menu</a>
+                <a href="#add-form" data-icon="gear" data-iconpos="notext">Add</a>
+            </div><!-- /header -->
+            <div role="main" class="ui-content jqm-content jqm-fullwidth">
+                <h1>Panel responsive</h1>
+                <p>This is a typical page that has two buttons in the header bar that open panels. The left panel has the push display mode, the right panel reveal. To make this responsive, you can make the page re-flow at wider widths. This allows both the panel menu and page to be used together when more space is available. This behavior is controlled by CSS media queries. You can create a custom one for a specific breakpoint or use the breakpoint preset by adding the <code>class="ui-responsive-panel"</code> to the page container. We have added this class on this demo page. Note that when using the preset class, we also hide the dismiss layer on wider screens if the panel has the push display mode.</p>
+                <div data-demo-html="#panel-responsive-page1"></div><!--/demo-html -->
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <a href="../" data-rel="back" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-mini ui-btn-inline ui-icon-carat-l ui-btn-icon-left ui-alt-icon ui-nodisc-icon">Back</a>
+            </div><!-- /content -->
+            <div data-role="panel" data-display="push" data-theme="b" id="nav-panel">
+                <ul data-role="listview">
+                    <li data-icon="delete"><a href="#" data-rel="close">Close menu</a></li>
+                    <li><a href="#panel-responsive-page2">Accordion</a></li>
+                    <li><a href="#panel-responsive-page2">Ajax Navigation</a></li>
+                    <li><a href="#panel-responsive-page2">Autocomplete</a></li>
+                    <li><a href="#panel-responsive-page2">Buttons</a></li>
+
                 </ul>
-            </div>
-
-            <div data-role="content">
-                <div class="titlepage">Buscar Usuario</div>
-                <div style="width:100%; display:inline">
-                    <div style="float: left; width:60%;padding-right:3px;">
-                        <input type="text" id="txtNombre" data-clear-btn="true"/>
+            </div><!-- /panel -->
+            <div data-role="panel" data-position="right" data-display="reveal" data-theme="a" id="add-form">
+                <form class="userform">
+                    <h2>Login</h2>
+                    <label for="name">Username:</label>
+                    <input type="text" name="name" id="name" value="" data-clear-btn="true" data-mini="true">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-b ui-mini">Cancel</a></div>
+                        <div class="ui-block-b"><a href="#" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-mini">Save</a></div>
                     </div>
-                    <div style="float: left; width:35%;">
-                        <button id="btnBuscar">Buscar</button>
-                    </div>
-               </div>
-                <div id="divResultado"></div>
-
-            </div>
-
-            <div data-role="footer" data-position="fixed">
-                <h3>Hecho en Casa Hn</h3>
-            </div>
-           
-
+                </form>
+            </div><!-- /panel -->
         </div>
-
-        <!----PAGINA2-->
-        <div data-role="page" id="pagina2">
-            <div data-role="header" data-position="fixed">
-                <h4>Registro de datos</h4>
-            </div>
-            <div data-role="navbar">
-                <ul>
-                    <li><a href="#pagina1" data-icon="search">Consulta</a></li>
-                    <li><a href="#" data-icon="search">Registro</a></li>
-                </ul>
-            </div>
-
-            <div data-role="content">
-                <div class="titlepage">Registrar Usuario</div>
-              <div class="ui-field-contain">
-                  <label for="txtUsername">Usuario:</label>
-                  <input id="txtUsername" type="text" placeholder="Tu usuario" value="" required />
-                  <label for="txtPassword">Password:</label>
-                  <input id="txtPassword" type="password" placeholder="Tu password" value="" required />
-                  <label for="txtFullname">Nombre:</label>
-                  <input id="txtFullname" type="text" placeholder="Tu nombre completo" value="" required />
-                  <label for="txtCelular">Celular:</label>
-                  <input id="txtCelular" type="text" placeholder="Tu celular" value="" />
-                  <label for="txtEmail">Email:</label>
-                  <input id="txtEmail" type="email" placeholder="Tu email" value="" required />
-                  <label for="txtFechaNac">Fecha Nac.:</label>
-                  <input id="txtFechaNac" type="date" placeholder="Tu fecha nac."/>
-                  <button id="btnGuardar" data-inline="true">Guardar</button>
-              </div>
-                <div id="divRegistro"></div>
-
-            </div>
-
-            <div data-role="footer" data-position="fixed">
-                <h3>Hecho en Casa Hn</h3>
-            </div>
-
-
-        </div>
-
 
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
