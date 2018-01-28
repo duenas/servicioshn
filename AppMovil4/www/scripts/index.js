@@ -13,8 +13,17 @@
         document.addEventListener( 'resume', onResume.bind( this ), false );
         
         // TODO: Cordova se ha cargado. Haga aquí las inicializaciones que necesiten Cordova.
-        document.getElementById("btnBuscar").addEventListener('click', BuscarUsuario, false);
-        document.getElementById("btnGuardar").addEventListener('click', RegistrarUsuario, false);
+        //document.getElementById("btnBuscar").addEventListener('click', BuscarUsuario, false);
+        //document.getElementById("btnGuardar").addEventListener('click', RegistrarUsuario, false);
+        //document.getElementById("pdf").addEventListener('click', openPDF, false);
+
+        document.getElementById('help-select').addEventListener('change', ejecuta, false);
+     
+
+
+
+
+
     };
 
     function onPause() {
@@ -129,6 +138,94 @@
             });
         }
     }
+
+    function showHelp(url) {
+
+        var target = "_blank";
+
+        var options = "location=yes,hidden=yes";
+
+        inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
+
+        inAppBrowserRef.addEventListener('loadstart', loadStartCallBack);
+
+        inAppBrowserRef.addEventListener('loadstop', loadStopCallBack);
+
+        inAppBrowserRef.addEventListener('loaderror', loadErrorCallBack);
+
+    }
+    function loadStartCallBack() {
+
+        $('#status-message').text("loading please wait ...");
+
+    }
+
+
+    function loadStopCallBack() {
+
+        if (inAppBrowserRef != undefined) {
+
+            inAppBrowserRef.insertCSS({ code: "body{font-size: 25px;" });
+
+            $('#status-message').text("");
+
+            inAppBrowserRef.show();
+        }
+
+    }
+
+    function loadErrorCallBack(params) {
+
+        $('#status-message').text("");
+
+        var scriptErrorMesssage =
+            "alert('Sorry we cannot open that page. Message from the server is : "
+            + params.message + "');"
+
+        inAppBrowserRef.executeScript({ code: scriptErrorMesssage }, executeScriptCallBack);
+
+        inAppBrowserRef.close();
+
+        inAppBrowserRef = undefined;
+
+    }
+
+    function executeScriptCallBack(params) {
+
+        if (params[0] == null) {
+
+            $('#status-message').text(
+                "Sorry we couldn't open that page. Message from the server is : '"
+                + params.message + "'");
+        }
+
+    }
+
+   /* $('#help-select').on('change', function (e)*/ 
+        function ejecuta() {
+        var url;
+        var valor = document.getElementById("help-select").value;
+        switch (valor) {
+
+            case "article":
+                url = "http://192.168.0.11:9999/ejemplo.pdf";
+                   
+                break;
+
+            case "video":
+                url = "https://youtu.be/F-GlVrTaeH0";
+                break;
+
+            case "search":
+                url = "https://www.google.com/#q=inAppBrowser+plugin";
+                break;
+        }
+
+        showHelp(url);
+
+    }
+
+
 
 
 
